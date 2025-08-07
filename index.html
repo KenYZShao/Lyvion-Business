@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lyvion Business helps overseas companies enter the Chinese market with tailored reception, branding, and localization support. Based in Shanghai.">
+    <title>Business Hospitality & Localization in China – Lyvion Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        :root {
+            --primary-color: #1E3A8A;
+            --accent-color: #D4AF37;
+            --background-color: #FAFAFA;
+            --text-color: #333;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            /* 添加平滑滚动效果 */
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary-color);
+        }
+
+        /* 英雄部分标题样式 */
+        .hero-title {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: white;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* 动画效果 */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 手机端导航栏折叠 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="fixed top-4 right-4 z-50">
+        <button class="text-gray-600 hover:text-gray-800">EN | 中文</button>
+    </div>
+
+    <!-- 头部导航 -->
+    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gray-800">Lyvion Business</a>
+            <nav class="flex space-x-4 nav-menu">
+                <a href="#hero" class="text-gray-600 hover:text-gray-800 nav-link">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-gray-800 nav-link">About Us</a>
+                <a href="#services" class="text-gray-600 hover:text-gray-800 nav-link">Services</a>
+                <a href="#why-choose" class="text-gray-600 hover:text-gray-800 nav-link">Why Lyvion</a>
+                <a href="#contact" class="text-gray-600 hover:text-gray-800 nav-link">Contact</a>
+            </nav>
+            <div class="hamburger-menu hidden">
+                <i class="fa-solid fa-bars text-gray-600"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄部分 -->
+    <section id="hero" class="bg-cover bg-center py-64 relative" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080'); background-size: cover; background-position: center;">
+        <div class="container mx-auto px-4 text-center text-white">
+            <!-- 添加 hero-title 类名 -->
+            <h1 class="hero-title text-4xl font-bold mb-4 fade-in">Your Trusted Bridge to the Chinese Market</h1>
+            <p class="text-lg mb-8 fade-in">End-to-end business hospitality and localization services tailored for foreign companies entering China.</p>
+            <div class="flex justify-center space-x-4 fade-in">
+                <a href="#" class="btn py-2 px-4 rounded-md">Let’s Talk</a>
+                <a href="#services" class="btn py-2 px-4 rounded-md">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们部分 -->
+    <section id="about" class="section fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="section-subtitle">A Shanghai-based consultancy for overseas businesses</p>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto">Lyvion Business is a Shanghai-based consultancy providing full-cycle landing support for overseas businesses entering the Chinese market. We combine international thinking with local execution, offering not only professional services but also cultural guidance and reliable partnership throughout your journey.</p>
+        </div>
+    </section>
+
+    <!-- 服务部分 -->
+    <section id="services" class="section bg-white fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Tailored services for your business needs</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-100 p-8 rounded-md shadow-md text-center">
+                    <i class="fa-solid fa-truck-fast text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Business Hospitality & Logistics</h3>
+                    <p class="text-gray-600">Airport pickups, meetings, exhibitions, VIP visit support</p>
+                </div>
+                <div class="bg-gray-100 p-8 rounded-md shadow-md text-center">
+                    <i class="fa-solid fa-globe text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Localization & Branding</h3>
+                    <p class="text-gray-600">Content adaptation, brand positioning, cultural translation</p>
+                </div>
+                <div class="bg-gray-100 p-8 rounded-md shadow-md text-center">
+                    <i class="fa-solid fa-map text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Market Entry Support</h3>
+                    <p class="text-gray-600">Market insights, policy guidance, channel partnerships</p>
+                </div>
+                <div class="bg-gray-100 p-8 rounded-md shadow-md text-center">
+                    <i class="fa-solid fa-cogs text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Project Management</h3>
+                    <p class="text-gray-600">Multilingual coordination, local execution, long - term support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 为什么选择我们部分 -->
+    <section id="why-choose" class="section fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">Why Choose Lyvion Business</h2>
+            <p class="section-subtitle">Our unique advantages for your success</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-md shadow-md text-center">
+                    <i class="fa-solid fa-earth-americas text-4xl text-blue-500 mb-4"></i>
+                    <p class="text-gray-600">Local Insight + Global Mindset</p>
+                </div>
+                <div class="bg-white p-8 rounded-md shadow-md text-center">
+                    <i class="fa-solid fa-handshake text-4xl text-blue-500 mb-4"></i>
+                    <p class="text-gray-600">Human - Centered Collaboration</p>
+                </div>
+                <div class="bg-white p-8 rounded-md shadow-md text-center">
+                    <i class="fa-solid fa-language text-4xl text-blue-500 mb-4"></i>
+                    <p class="text-gray-600">Cultural Bridging, Not Just Translating</p>
+                </div>
+                <div class="bg-white p-8 rounded-md shadow-md text-center">
+                    <i class="fa-solid fa-check-double text-4xl text-blue-500 mb-4"></i>
+                    <p class="text-gray-600">Reliable Execution, Real Partnership</p>
+                </div>
+            </div>
+            <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
+                <p class="text-gray-600 italic">“Lyvion helped us feel confident in China. They didn't just support our project—they understood it.”</p>
+                <p class="text-gray-800 font-bold mt-4">— Client from Germany</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们的信念部分 -->
+    <section class="section bg-white fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">A Partnership, Not Just a Service</h2>
+            <p class="section-subtitle">Our commitment to your growth</p>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto">At Lyvion, we believe that entering a new market is more than a transaction—it’s a transformation. We are committed to walking the journey with you, from first contact to long - term growth.</p>
+        </div>
+    </section>
+
+    <!-- 联系我们部分 -->
+    <section id="contact" class="section fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">Let’s Start the Conversation</h2>
+            <p class="section-subtitle">Get in touch with us today</p>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto">Interested in expanding into China or learning how Lyvion can support your journey? Drop us a message or schedule a call—we’d love to hear your plans.</p>
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">Email: <a href="mailto:contact@lyvionbusiness.com" class="text-blue-500 hover:underline">contact@lyvionbusiness.com</a></p>
+                <p class="text-gray-600">Location: Shanghai, China</p>
+                <!-- 这里可以添加嵌入式表单或微信二维码 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Lyvion Business. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
