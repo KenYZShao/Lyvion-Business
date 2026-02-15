@@ -98,16 +98,16 @@
             display: none;
         }
 
-        /* 移动端导航样式 */
+        /* 移动端导航样式 - 包含动画和悬停效果 */
         @media (max-width: 768px) {
             .hamburger-menu {
-                display: block;   /* 移动端显示汉堡图标 */
+                display: block;
                 cursor: pointer;
             }
-            nav.nav-menu {                /* 更具体的选择器，确保覆盖 Tailwind 的 .flex */
-                display: none;            /* 默认隐藏菜单 */
+            nav.nav-menu {
+                display: flex;                /* 保持 flex 布局 */
                 position: absolute;
-                top: 100%;                /* 紧贴 header 下方 */
+                top: 100%;
                 left: 0;
                 right: 0;
                 background-color: white;
@@ -116,29 +116,38 @@
                 padding: 1rem 0;
                 box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
                 z-index: 50;
+                /* 初始隐藏状态 */
+                opacity: 0;
+                transform: translateY(-10px);
+                visibility: hidden;
+                transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
             }
-            nav.nav-menu.show-menu {      /* 显示菜单 */
-                display: flex;
+            nav.nav-menu.show-menu {
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
             }
             nav.nav-menu a {
                 padding: 0.75rem 1rem;
                 width: 100%;
                 text-align: center;
                 border-bottom: 1px solid #eee;
+                transition: background-color 0.2s ease, color 0.2s ease;
             }
             nav.nav-menu a:last-child {
                 border-bottom: none;
+            }
+            /* 悬停/触摸效果 */
+            nav.nav-menu a:hover,
+            nav.nav-menu a:active {
+                background-color: var(--primary-color);
+                color: white;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- 语言切换按钮（已注释，如需使用可取消注释） -->
-    <!-- <div class="fixed top-4 right-4 z-50">
-        <button class="text-gray-600 hover:text-gray-800">EN | 中文</button>
-    </div> -->
-
     <!-- 头部导航 -->
     <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-40">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
