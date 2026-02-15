@@ -144,6 +144,19 @@
                 color: white;
             }
         }
+
+        /* ----- 新增轮播样式 ----- */
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;  /* 淡入淡出时间可调整 */
+        }
+        .hero-slide.active {
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -152,9 +165,9 @@
     <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-40">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center text-xl font-bold text-gray-800">
-        <img src="Asset/RedIcon.png"  alt="Lyvion Business" class="h-10 mr-2">
-        Lyvion Business
-        </a>
+                <img src="Asset/RedIcon.png" alt="Lyvion Business" class="h-10 mr-2">
+                Lyvion Business
+            </a>
             <nav class="flex space-x-4 nav-menu" id="nav-menu">
                 <a href="#hero" class="text-gray-600 hover:text-gray-800 nav-link">Home</a>
                 <a href="#about" class="text-gray-600 hover:text-gray-800 nav-link">About Us</a>
@@ -168,9 +181,22 @@
         </div>
     </header>
 
-    <!-- 英雄部分 -->
-    <section id="hero" class="bg-cover bg-center py-64 relative" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080'); background-size: cover; background-position: center;">
-        <div class="container mx-auto px-4 text-center text-white">
+    <!-- 英雄部分 - 图片轮播 -->
+    <section id="hero" class="relative py-64 overflow-hidden">
+        <!-- 轮播图片容器 (8张图片) -->
+        <div class="absolute inset-0 z-0">
+            <!-- 请根据你实际的文件名修改下面的图片路径，并确保数量为8张 -->
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGHimalaya.png');"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGWangfujin.jpg');"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGBeijingSquare.jpg');"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGBot.jpg');"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGMichelin.jpg');"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGBeijingStreet.jpg');"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGSulwhasoo.jpg');"></div>
+        </div>
+
+        <!-- 文字内容 (保持原有) -->
+        <div class="container mx-auto px-4 text-center text-white relative z-10">
             <h1 class="hero-title text-4xl font-bold mb-4 fade-in">Your Trusted Bridge to the Chinese Market</h1>
             <p class="text-lg mb-8 fade-in">End-to-end business hospitality and localization services tailored for foreign companies entering China.</p>
             <div class="flex justify-center space-x-4 fade-in">
@@ -307,6 +333,7 @@
     </footer>
 
     <script>
+        // 汉堡菜单功能（保持不变）
         (function() {
             const hamburger = document.getElementById('hamburger-icon');
             const navMenu = document.getElementById('nav-menu');
@@ -335,6 +362,25 @@
                     hideMenu();
                 }
             });
+        })();
+
+        // 新增：图片轮播功能
+        (function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            if (slides.length === 0) return;
+
+            let currentIndex = 0;
+            const slideCount = slides.length;
+
+            // 每5秒切换到下一张
+            setInterval(() => {
+                // 移除当前图片的 active 类
+                slides[currentIndex].classList.remove('active');
+                // 计算下一张索引
+                currentIndex = (currentIndex + 1) % slideCount;
+                // 为下一张图片添加 active 类
+                slides[currentIndex].classList.add('active');
+            }, 5000); // 切换间隔 5000ms = 5秒
         })();
     </script>
 </body>
