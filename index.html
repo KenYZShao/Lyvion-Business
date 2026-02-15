@@ -131,42 +131,7 @@
         
     </style>
 </head>
-<script>
-    (function() {
-        const hamburger = document.getElementById('hamburger-icon');
-        const navMenu = document.getElementById('nav-menu');
 
-        if (!hamburger || !navMenu) return;
-
-        // 切换菜单显示
-        function toggleMenu() {
-            navMenu.classList.toggle('show-menu');
-        }
-
-        // 隐藏菜单
-        function hideMenu() {
-            navMenu.classList.remove('show-menu');
-        }
-
-        // 点击汉堡图标
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation(); // 防止事件冒泡
-            toggleMenu();
-        });
-
-        // 点击菜单中的链接后隐藏菜单
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', hideMenu);
-        });
-
-        // 窗口大小改变时，如果变为桌面视图，强制隐藏移动菜单
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                hideMenu();
-            }
-        });
-    })();
-</script>
 <body>
     <!-- 语言切换按钮 -->
     <!-- div class="fixed top-4 right-4 z-50">
@@ -329,6 +294,44 @@
             <p>&copy; 2026 Lyvion Business. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    (function() {
+        const hamburger = document.getElementById('hamburger-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (!hamburger || !navMenu) return;
+
+        // 切换菜单显示
+        function toggleMenu() {
+            navMenu.classList.toggle('show-menu');
+        }
+
+        // 隐藏菜单
+        function hideMenu() {
+            navMenu.classList.remove('show-menu');
+        }
+
+        // 点击汉堡图标
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation(); // 防止事件冒泡
+            toggleMenu();
+        });
+
+        // 点击菜单中的链接后隐藏菜单
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', hideMenu);
+        });
+
+        // 窗口大小改变时，如果变为桌面视图，强制隐藏移动菜单
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                hideMenu();
+            }
+        });
+    })();
+</script>
+
 </body>
 
 
