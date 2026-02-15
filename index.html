@@ -21,7 +21,6 @@
         body {
             background-color: var(--background-color);
             color: var(--text-color);
-            /* 添加平滑滚动效果 */
             scroll-behavior: smooth;
         }
 
@@ -31,7 +30,6 @@
             color: var(--primary-color);
         }
 
-        /* 英雄部分标题样式 */
         .hero-title {
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -89,60 +87,63 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-/* 移动端导航样式 */
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block;   /* 显示汉堡图标 */
-        cursor: pointer;
-    }
-    nav.nav-menu {              /* 更具体的选择器 */
-        display: none;          /* 默认隐藏菜单 */
-        position: absolute;
-        top: 100%;              /* 紧贴 header 下方 */
-        left: 0;
-        right: 0;
-        background-color: white;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        z-index: 50;
-    }
-    nav.nav-menu.show-menu {    /* 显示菜单 */
-        display: flex;
-    }
-    nav.nav-menu a {
-        padding: 0.75rem 1rem;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-    }
-    nav.nav-menu a:last-child {
-        border-bottom: none;
-    }
-}
+        /* 汉堡菜单默认隐藏（桌面端） */
+        .hamburger-menu {
+            display: none;
+        }
+
+        /* 移动端导航样式 */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;   /* 移动端显示汉堡图标 */
+                cursor: pointer;
+            }
+            nav.nav-menu {                /* 更具体的选择器，确保覆盖 Tailwind 的 .flex */
+                display: none;            /* 默认隐藏菜单 */
+                position: absolute;
+                top: 100%;                /* 紧贴 header 下方 */
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+                z-index: 50;
+            }
+            nav.nav-menu.show-menu {      /* 显示菜单 */
+                display: flex;
+            }
+            nav.nav-menu a {
+                padding: 0.75rem 1rem;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+            nav.nav-menu a:last-child {
+                border-bottom: none;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <!-- 语言切换按钮 -->
-    <!-- div class="fixed top-4 right-4 z-50">
+    <!-- 语言切换按钮（已注释，如需使用可取消注释） -->
+    <!-- <div class="fixed top-4 right-4 z-50">
         <button class="text-gray-600 hover:text-gray-800">EN | 中文</button>
-    </div>
+    </div> -->
 
     <!-- 头部导航 -->
     <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-40">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-gray-800">Lyvion Business</a>
             <nav class="flex space-x-4 nav-menu" id="nav-menu">
-            
                 <a href="#hero" class="text-gray-600 hover:text-gray-800 nav-link">Home</a>
                 <a href="#about" class="text-gray-600 hover:text-gray-800 nav-link">About Us</a>
                 <a href="#services" class="text-gray-600 hover:text-gray-800 nav-link">Services</a>
@@ -150,7 +151,7 @@
                 <a href="#contact" class="text-gray-600 hover:text-gray-800 nav-link">Contact</a>
             </nav>
             <div class="hamburger-menu" id="hamburger-icon">
-            <i class="fa-solid fa-bars text-gray-600"></i>
+                <i class="fa-solid fa-bars text-gray-600"></i>
             </div>
         </div>
     </header>
@@ -158,7 +159,6 @@
     <!-- 英雄部分 -->
     <section id="hero" class="bg-cover bg-center py-64 relative" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1920/1080'); background-size: cover; background-position: center;">
         <div class="container mx-auto px-4 text-center text-white">
-            <!-- 添加 hero-title 类名 -->
             <h1 class="hero-title text-4xl font-bold mb-4 fade-in">Your Trusted Bridge to the Chinese Market</h1>
             <p class="text-lg mb-8 fade-in">End-to-end business hospitality and localization services tailored for foreign companies entering China.</p>
             <div class="flex justify-center space-x-4 fade-in">
@@ -203,15 +203,15 @@
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Integrated Marketing Strategy</h3>
                     <p class="text-gray-600">Develop a comprehensive marketing plan encompassing market positioning, competitive analysis, and promotional strategies.</p>
                 </div>
-                                <div class="bg-gray-100 p-8 rounded-md shadow-md text-center">
+                <div class="bg-gray-100 p-8 rounded-md shadow-md text-center">
                     <i class="fa-solid fa-calendar-check text-4xl text-blue-500 mb-4"></i>
                     <h3 class="text-xl font-bold text-gray-800 mb-2">End-to-end event operations management</h3>
                     <p class="text-gray-600">Comprehensive event solutions from concept to execution, encompassing theme planning, exhibitor recruitment, design and construction.</p>
                 </div>
-                                <div class="bg-gray-100 p-8 rounded-md shadow-md text-center">
+                <div class="bg-gray-100 p-8 rounded-md shadow-md text-center">
                     <i class="fa-solid fa-paint-brush text-4xl text-blue-500 mb-4"></i>
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Brand Visual Design Services</h3>
-                    <p class="text-gray-600">Specialising in logo, VI and packaging design, enhancing brandrecognition through distinctive design language. </p>
+                    <p class="text-gray-600">Specialising in logo, VI and packaging design, enhancing brandrecognition through distinctive design language.</p>
                 </div>
             </div>
         </div>
@@ -242,22 +242,22 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
-                <p class="text-gray-600 italic">“For any European company looking to develop business in China, Lyvion is the perfect partner. They offer comprehensive PR and advertising solutions, adapt quickly to our needs and ensure every project runs smoothly. A reliable, professional and client-focused agency.”</p>
-                <p class="text-gray-800 font-bold mt-4">— Hans Schmidt | Netherlands</p>
-            </div>
-            <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
-                <p class="text-gray-600 italic">“Exceptional service from the Lyvion team. They understand exactly what European companies need when expanding into China, providing end-to-end PR and advertising support with great attention to detail. Communication is clear and timely, and they always put clients’ objectives first.”</p>
-                <p class="text-gray-800 font-bold mt-4">— Emma Wilson | United Kingdom</p>
-            </div>
-            <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
-                <p class="text-gray-600 italic">“Lyvion stands out for its professionalism and dedication. They supported our business activities in China from A to Z, offering clear advice, creative campaigns and excellent media relations. Thanks to their work, our entry into the Chinese market was efficient and successful.”</p>
-                <p class="text-gray-800 font-bold mt-4">— Marco Ferrari | Italy</p>
-            </div>
-            <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
-                <p class="text-gray-600 italic">“We worked with Lyvion to build our brand presence in China, and we were impressed by their strategic thinking and execution. They bridge cultural gaps smoothly and provide tailored advertising and PR services that fit our international standards. A trustworthy partner for cross‑border business.”</p>
-                <p class="text-gray-800 font-bold mt-4">— Sophie Dubois | France</p>
-            </div>
+                <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
+                    <p class="text-gray-600 italic">“For any European company looking to develop business in China, Lyvion is the perfect partner. They offer comprehensive PR and advertising solutions, adapt quickly to our needs and ensure every project runs smoothly. A reliable, professional and client-focused agency.”</p>
+                    <p class="text-gray-800 font-bold mt-4">— Hans Schmidt | Netherlands</p>
+                </div>
+                <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
+                    <p class="text-gray-600 italic">“Exceptional service from the Lyvion team. They understand exactly what European companies need when expanding into China, providing end-to-end PR and advertising support with great attention to detail. Communication is clear and timely, and they always put clients’ objectives first.”</p>
+                    <p class="text-gray-800 font-bold mt-4">— Emma Wilson | United Kingdom</p>
+                </div>
+                <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
+                    <p class="text-gray-600 italic">“Lyvion stands out for its professionalism and dedication. They supported our business activities in China from A to Z, offering clear advice, creative campaigns and excellent media relations. Thanks to their work, our entry into the Chinese market was efficient and successful.”</p>
+                    <p class="text-gray-800 font-bold mt-4">— Marco Ferrari | Italy</p>
+                </div>
+                <div class="mt-12 bg-white p-8 rounded-md shadow-md text-center max-w-2xl mx-auto">
+                    <p class="text-gray-600 italic">“We worked with Lyvion to build our brand presence in China, and we were impressed by their strategic thinking and execution. They bridge cultural gaps smoothly and provide tailored advertising and PR services that fit our international standards. A trustworthy partner for cross‑border business.”</p>
+                    <p class="text-gray-800 font-bold mt-4">— Sophie Dubois | France</p>
+                </div>
             </div>
         </div>
     </section>
@@ -279,7 +279,7 @@
             <p class="text-gray-600 text-center max-w-2xl mx-auto">Interested in expanding into China or learning how Lyvion can support your journey? Drop us a message or schedule a call—we’d love to hear your plans.</p>
             <div class="mt-8 text-center">
                 <p class="text-gray-600">Email: <a href="mailto:contact@lyvionbusiness.com" class="text-blue-500 hover:underline">contact@lyvionbusiness.com</a></p>
-                 <p class="text-gray-600">Contact Number: <a href="mailto:contact@lyvionbusiness.com" class="text-blue-500 hover:underline">+86 18930375220</a></p>
+                <p class="text-gray-600">Contact Number: <a href="mailto:contact@lyvionbusiness.com" class="text-blue-500 hover:underline">+86 18930375220</a></p>
                 <p class="text-gray-600">Shanghai Office: NO.1894 WEST NANJING RD, JING’AN DISTRICT, SHANGHAI</p>
                 <p class="text-gray-600">Beijing Office: WANGFU CENTER, DONGCHENG DISTRICT, BEIJING</p>
                 <!-- 这里可以添加嵌入式表单或微信二维码 -->
@@ -295,45 +295,36 @@
     </footer>
 
     <script>
-    (function() {
-        const hamburger = document.getElementById('hamburger-icon');
-        const navMenu = document.getElementById('nav-menu');
+        (function() {
+            const hamburger = document.getElementById('hamburger-icon');
+            const navMenu = document.getElementById('nav-menu');
 
-        if (!hamburger || !navMenu) return;
+            if (!hamburger || !navMenu) return;
 
-        // 切换菜单显示
-        function toggleMenu() {
-            navMenu.classList.toggle('show-menu');
-        }
-
-        // 隐藏菜单
-        function hideMenu() {
-            navMenu.classList.remove('show-menu');
-        }
-
-        // 点击汉堡图标
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation(); // 防止事件冒泡
-            toggleMenu();
-        });
-
-        // 点击菜单中的链接后隐藏菜单
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', hideMenu);
-        });
-
-        // 窗口大小改变时，如果变为桌面视图，强制隐藏移动菜单
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                hideMenu();
+            function toggleMenu() {
+                navMenu.classList.toggle('show-menu');
             }
-        });
-    })();
-</script>
 
+            function hideMenu() {
+                navMenu.classList.remove('show-menu');
+            }
+
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', hideMenu);
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    hideMenu();
+                }
+            });
+        })();
+    </script>
 </body>
 
-
 </html>
-
-
