@@ -96,16 +96,16 @@
             }
         }
 
-        /* 移动端导航样式 */
+/* 移动端导航样式 */
 @media (max-width: 768px) {
     .hamburger-menu {
         display: block;   /* 显示汉堡图标 */
         cursor: pointer;
     }
-    .nav-menu {
-        display: none;    /* 默认隐藏菜单 */
+    nav.nav-menu {              /* 更具体的选择器 */
+        display: none;          /* 默认隐藏菜单 */
         position: absolute;
-        top: 100%;        /* 紧贴 header 下方 */
+        top: 100%;              /* 紧贴 header 下方 */
         left: 0;
         right: 0;
         background-color: white;
@@ -115,20 +115,19 @@
         box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         z-index: 50;
     }
-    .nav-menu.show-menu {
-        display: flex;    /* 显示菜单 */
+    nav.nav-menu.show-menu {    /* 显示菜单 */
+        display: flex;
     }
-    .nav-menu a {
+    nav.nav-menu a {
         padding: 0.75rem 1rem;
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #eee;
     }
-    .nav-menu a:last-child {
+    nav.nav-menu a:last-child {
         border-bottom: none;
     }
 }
-        
     </style>
 </head>
 
