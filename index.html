@@ -108,7 +108,42 @@
         }
     </style>
 </head>
+<script>
+    (function() {
+        const hamburger = document.getElementById('hamburger-icon');
+        const navMenu = document.getElementById('nav-menu');
 
+        if (!hamburger || !navMenu) return;
+
+        // 切换菜单显示
+        function toggleMenu() {
+            navMenu.classList.toggle('show-menu');
+        }
+
+        // 隐藏菜单
+        function hideMenu() {
+            navMenu.classList.remove('show-menu');
+        }
+
+        // 点击汉堡图标
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation(); // 防止事件冒泡
+            toggleMenu();
+        });
+
+        // 点击菜单中的链接后隐藏菜单
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', hideMenu);
+        });
+
+        // 窗口大小改变时，如果变为桌面视图，强制隐藏移动菜单
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                hideMenu();
+            }
+        });
+    })();
+</script>
 <body>
     <!-- 语言切换按钮 -->
     <!-- div class="fixed top-4 right-4 z-50">
@@ -119,15 +154,16 @@
     <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-40">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-gray-800">Lyvion Business</a>
-            <nav class="flex space-x-4 nav-menu">
+            <nav class="flex space-x-4 nav-menu" id="nav-menu">
+            
                 <a href="#hero" class="text-gray-600 hover:text-gray-800 nav-link">Home</a>
                 <a href="#about" class="text-gray-600 hover:text-gray-800 nav-link">About Us</a>
                 <a href="#services" class="text-gray-600 hover:text-gray-800 nav-link">Services</a>
                 <a href="#why-choose" class="text-gray-600 hover:text-gray-800 nav-link">Why Lyvion</a>
                 <a href="#contact" class="text-gray-600 hover:text-gray-800 nav-link">Contact</a>
             </nav>
-            <div class="hamburger-menu hidden">
-                <i class="fa-solid fa-bars text-gray-600"></i>
+            <div class="hamburger-menu" id="hamburger-icon">
+            <i class="fa-solid fa-bars text-gray-600"></i>
             </div>
         </div>
     </header>
