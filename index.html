@@ -144,19 +144,6 @@
                 color: white;
             }
         }
-
-        /* ----- 新增轮播样式 ----- */
-        .hero-slide {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;  /* 淡入淡出时间可调整 */
-        }
-        .hero-slide.active {
-            opacity: 1;
-        }
     </style>
 </head>
 
@@ -181,25 +168,13 @@
         </div>
     </header>
 
-    <!-- 英雄部分 - 图片轮播 -->
-    <section id="hero" class="relative py-64 overflow-hidden">
-        <!-- 轮播图片容器 (8张图片) -->
-        <div class="absolute inset-0 z-0">
-            <!-- 请根据你实际的文件名修改下面的图片路径，并确保数量为8张 -->
-            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('Asset/BGHimalaya.png');"></div>
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGBeijingSquare.jpg');"></div>
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGBot.jpg');"></div>
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGMichelin.jpg');"></div>
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGBeijingStreet.jpg');"></div>
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Asset/BGSulwhasoo.jpg');"></div>
-        </div>
-
-        <!-- 文字内容 (保持原有) -->
-        <div class="container mx-auto px-4 text-center text-white relative z-10">
+    <!-- 英雄部分 - 固定单张背景图（第一张，黑色遮罩20%） -->
+    <section id="hero" class="bg-cover bg-center py-64 relative" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('Asset/bg1.jpg'); background-size: cover; background-position: center;">
+        <div class="container mx-auto px-4 text-center text-white">
             <h1 class="hero-title text-4xl font-bold mb-4 fade-in">Your Trusted Bridge to the Chinese Market</h1>
             <p class="text-lg mb-8 fade-in">End-to-end business hospitality and localization services tailored for foreign companies entering China.</p>
             <div class="flex justify-center space-x-4 fade-in">
-                <a href="#contact" class="btn py-2 px-4 rounded-md">Let’s Talk</a>
+                <a href="#" class="btn py-2 px-4 rounded-md">Let’s Talk</a>
                 <a href="#services" class="btn py-2 px-4 rounded-md">Explore Services</a>
             </div>
         </div>
@@ -332,7 +307,7 @@
     </footer>
 
     <script>
-        // 汉堡菜单功能（保持不变）
+        // 汉堡菜单功能
         (function() {
             const hamburger = document.getElementById('hamburger-icon');
             const navMenu = document.getElementById('nav-menu');
@@ -363,24 +338,7 @@
             });
         })();
 
-        // 新增：图片轮播功能
-        (function() {
-            const slides = document.querySelectorAll('.hero-slide');
-            if (slides.length === 0) return;
-
-            let currentIndex = 0;
-            const slideCount = slides.length;
-
-            // 每5秒切换到下一张
-            setInterval(() => {
-                // 移除当前图片的 active 类
-                slides[currentIndex].classList.remove('active');
-                // 计算下一张索引
-                currentIndex = (currentIndex + 1) % slideCount;
-                // 为下一张图片添加 active 类
-                slides[currentIndex].classList.add('active');
-            }, 4200); // 切换间隔 5000ms = 5秒
-        })();
+        // 轮播功能已移除，不再有图片切换
     </script>
 </body>
 
